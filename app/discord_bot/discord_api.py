@@ -18,15 +18,13 @@ class MyClient(discord.Client):
             return
         command, user_message=None,None
 
-        for text in ['/ai','/bot','/chatgpt']:
-            if message.content.startswith(text):
-                command=message.content.split(' ')[0]
-                user_message=message.content.replace(text,'')
-                print(command, user_message)
         
-        if command == '/ai' or command == '/bot' or command == '/chatgpt':
+
+        if "<@1115512161096175628>" in message.content: 
+            user_message=message.content.replace("<@1115512161096175628>",'')
+            print(command, user_message) 
             bot_response = chatgpt_response(prompt=user_message)
-            await message.channel.send(f"Answer: {bot_response}")
+            await message.channel.send(bot_response)
 
 intents = discord.Intents.default()
 intents.message_content = True
