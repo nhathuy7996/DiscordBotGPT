@@ -20,8 +20,8 @@ class MyClient(discord.Client):
 
         
 
-        if "<@1115512161096175628>" in message.content: 
-            user_message=message.content.replace("<@1115512161096175628>",'')
+        if "<@1115478554445094992>" in message.content: 
+            user_message=message.content.replace("<@1115478554445094992>",'')
             print(command, user_message) 
             bot_response = chatgpt_response(prompt=user_message)
             await message.channel.send(bot_response)
