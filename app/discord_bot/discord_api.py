@@ -18,11 +18,15 @@ class MyClient(discord.Client):
             return
         command, user_message=None,None
 
-        if "<@1115478554445094992>" in message.content: 
-            user_message=message.content.replace("<@1115478554445094992>",'') 
-            bot_response = chatgpt_response(prompt=user_message)
-            await message.channel.send(bot_response)
-            return
+        print(f"<@{self.user.id}>")
+
+        if f"<@{self.user.id}>" in message.content: 
+            user_message=message.content.replace(f"<@{self.user.id}>",'') 
+            if(user_message):
+                print(user_message)
+                bot_response = chatgpt_response(prompt=user_message)
+                await message.channel.send(bot_response)
+                return
 
         if message.content.startswith('/tarotVI'): 
             user_message= "chọn giúp tôi 3 lá bài tarot ngẫu nhiên, giải thích ý nghĩa dựa theo câu hỏi " + message.content.replace('/tarotVI','')
