@@ -12,7 +12,7 @@ def chatgpt_response(prompt):
         model="text-davinci-003",
         prompt=prompt,
         temperature=1,
-        max_tokens=100
+        max_tokens=2000
     )
 
     response_dict = response.get("choices")
